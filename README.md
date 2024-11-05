@@ -3,7 +3,7 @@
 
 ## Descripción
 
-Esta es una API RESTful de lista de tareas (To-Do List) construida con Go, utilizando el framework Gin para el enrutamiento HTTP y GORM para la gestión de la base de datos. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una lista de tareas, almacenando los datos en una base de datos PostgreSQL. La aplicación está configurada para ejecutarse en un entorno Docker con Docker Compose.
+Esta es una REST API de lista de tareas (To-Do List) construida con Go, utilizando el framework Gin para el enrutamiento HTTP y GORM para la gestión de la base de datos. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una lista de tareas, almacenando los datos en una base de datos PostgreSQL. La aplicación está configurada para ejecutarse en un entorno Docker con Docker Compose.
 
 ## Características
 
