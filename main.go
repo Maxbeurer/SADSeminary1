@@ -47,6 +47,7 @@ func main() {
 	// Definir rutas para REST API
 	r.POST("/todos", createToDo)
 	r.GET("/todos", getToDos)
+	r.GET("/todos/:id", getToDoByID)
 	r.PUT("/todos/:id", updateToDo)
 	r.DELETE("/todos/:id", deleteToDo)
 
@@ -66,11 +67,21 @@ func createToDo(c *gin.Context) {
 	c.JSON(http.StatusOK, item)
 }
 
-// Función READ
+// Función READ todas las tareas
 func getToDos(c *gin.Context) {
 	var items []ToDoItem
 	db.Find(&items)
 	c.JSON(http.StatusOK, items)
+}
+
+// Función READ tarea por ID
+func getToDoByID(c *gin.Context) {
+	var item ToDoItem
+	if err := db.Where("id = ?", c.Param("id")).First(&item).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Record not found!"})
+		return
+	}
+	c.JSON(http.StatusOK, item)
 }
 
 // Función UPDATE
